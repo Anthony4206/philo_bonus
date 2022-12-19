@@ -15,13 +15,11 @@
 
 # include "structs_bonus.h"
 
-t_thread	ft_init_sem(t_ctx ctx);
+t_sem	    ft_init_sem(t_ctx ctx);
 t_philos	*ft_init_philo(t_ctx *ctx);
 t_ctx		ft_parse(char **argv);
-void		ft_create_thread(t_ctx ctx);
-void		ft_join_thread(t_ctx ctx);
-void		*ft_philo_func(void *v_philo);
-void		ft_death(t_ctx *ctx);
+void	    ft_process_launcher(t_ctx *ctx);
+void	    *ft_death(void *philo);
 void		ft_free(t_ctx ctx);
 
 #endif

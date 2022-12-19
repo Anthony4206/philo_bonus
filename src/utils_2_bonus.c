@@ -49,12 +49,12 @@ long int	ft_time(long int start)
 
 void	ft_lock_print(t_ctx *rules, int philo, char *msg)
 {
-	sem_wait(rules->ths.print);
+	sem_wait(rules->sem.print);
 	if (!rules->is_die)
 	{
 		printf("%ld ", ft_time(rules->start));
 		printf("%d ", philo + 1);
 		printf("%s\n", msg);
 	}
-	sem_post(rules->ths.print);
+	sem_post(rules->sem.print);
 }

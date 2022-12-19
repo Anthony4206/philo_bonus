@@ -20,19 +20,22 @@ struct	s_ctx;
 
 typedef struct s_philos
 {
-	int				philo;
+	int				philo_id;
 	long int		*last_diner;
+	int			    nb_diner;
 	long int		start;
+    int             is_die;
+    pid_t           pid;
+	pthread_t	    th;
 	struct s_ctx	*rules;
 }					t_philos;
 
-typedef struct s_thread
+typedef struct s_sem
 {
-	pthread_t	*th;
 	sem_t		*forks;
 	sem_t		*print;
-	sem_t		*is_die;
-}				t_thread;
+	sem_t		*checker;
+}				t_sem;
 
 typedef struct s_ctx
 {
@@ -41,9 +44,9 @@ typedef struct s_ctx
 	int			time_eat;
 	int			time_sleep;
 	int			nb_diner;
+    int         is_die;
 	long int	start;
-	pid_t		*pid;
-	t_thread	ths;
+	t_sem	    sem;
 	t_philos	*philo;
 }				t_ctx;
 
